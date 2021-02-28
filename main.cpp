@@ -1,7 +1,15 @@
 #include <iostream>
 #include <string>
-
 using namespace std;
+
+string word_tolower(string word)
+{
+    int n = word.length();
+    for (int i = 0; i < n; i++){
+        word[i] = tolower(word[i]);
+    }
+    return word;
+}
 
 struct circle {
     int x;
@@ -21,14 +29,16 @@ void find_circle_param(circle circ)
 int identify(string Object)
 {
     string ObjectName;
+    Object = word_tolower(Object);
+
     ObjectName = "circle";
-    if (_stricmp(Object.c_str(), ObjectName.c_str()) == 0)
+    if (Object == ObjectName)
         return 1;
     ObjectName = "triangle";
-    if (_stricmp(Object.c_str(), ObjectName.c_str()) == 0)
+    if (Object == ObjectName)
         return 2;
     ObjectName = "polygon";
-    if (_stricmp(Object.c_str(), ObjectName.c_str()) == 0)
+    if (Object == ObjectName)
         return 3;
     return 4;
 }

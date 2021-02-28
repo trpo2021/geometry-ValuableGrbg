@@ -44,31 +44,31 @@ int identify(string Object)
 }
 int main()
 {
-    string Object, ObjectName;
+    string input, figureName;
 
     circle circ;
 
-    Object.clear();
+    input.clear();
 
-    getline(cin, Object);
+    getline(cin, input);
 
-    if (Object.substr(0, 1) == " ") {
-        Object.erase(0, Object.find_first_not_of(" "));
+    if (input.substr(0, 1) == " ") {
+        input.erase(0, input.find_first_not_of(" "));
     }
-    if (Object.substr(Object.find("(") - 1, 1) == " ") {
-        Object = Object.erase(
-                Object.find(" "), Object.find("(") - Object.find(" "));
+    if (input.substr(input.find("(") - 1, 1) == " ") {
+        input = input.erase(
+                input.find(" "), input.find("(") - input.find(" "));
     }
-    ObjectName = Object.substr(0, Object.find("("));
+    figureName = input.substr(0, input.find("("));
 
-    switch (identify(ObjectName)) {
+    switch (identify(figureName)) {
     case (1):
-        Object = Object.erase(0, 6);
-        circ.x = stof(Object.substr(1, Object.find(" ")));
-        Object = Object.erase(0, Object.find(" "));
-        circ.y = stof(Object.substr(1, Object.find(",") - 1));
-        Object = Object.erase(0, Object.find(",") + 1);
-        circ.radius = stof(Object.substr(1, Object.find(")") - 1));
+        input = input.erase(0, 6);
+        circ.x = stof(input.substr(1, input.find(" ")));
+        input = input.erase(0, input.find(" "));
+        circ.y = stof(input.substr(1, input.find(",") - 1));
+        input = input.erase(0, input.find(",") + 1);
+        circ.radius = stof(input.substr(1, input.find(")") - 1));
         cout << "x = " << circ.x << endl;
         cout << "y = " << circ.y << endl;
         cout << "radius = " << circ.radius << endl;

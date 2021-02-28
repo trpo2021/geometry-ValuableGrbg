@@ -2,10 +2,12 @@
 #include <string>
 using namespace std;
 
+enum Figures { CIRCLE, TRIANGLE, POLYGON, ERROR };
+
 string word_tolower(string word)
 {
     int n = word.length();
-    for (int i = 0; i < n; i++){
+    for (int i = 0; i < n; i++) {
         word[i] = tolower(word[i]);
     }
     return word;
@@ -26,21 +28,24 @@ void find_circle_param(circle circ)
     cout << " Area: " << area << endl;
 }
 
-int identify(string Object)
+Figures identify(string figure)
 {
-    string ObjectName;
-    Object = word_tolower(Object);
+    string figureName;
+    figure = word_tolower(figure);
 
-    ObjectName = "circle";
-    if (Object == ObjectName)
-        return 1;
-    ObjectName = "triangle";
-    if (Object == ObjectName)
-        return 2;
-    ObjectName = "polygon";
-    if (Object == ObjectName)
-        return 3;
-    return 4;
+    figureName = "circle";
+    if (figure == figureName)
+        return CIRCLE;
+
+    figureName = "triangle";
+    if (figure == figureName)
+        return TRIANGLE;
+
+    figureName = "polygon";
+    if (figure == figureName)
+        return POLYGON;
+
+    return ERROR;
 }
 int main()
 {
@@ -56,13 +61,12 @@ int main()
         input.erase(0, input.find_first_not_of(" "));
     }
     if (input.substr(input.find("(") - 1, 1) == " ") {
-        input = input.erase(
-                input.find(" "), input.find("(") - input.find(" "));
+        input = input.erase(input.find(" "), input.find("(") - input.find(" "));
     }
     figureName = input.substr(0, input.find("("));
 
     switch (identify(figureName)) {
-    case (1):
+    case CIRCLE:
         input = input.erase(0, 6);
         circ.x = stof(input.substr(1, input.find(" ")));
         input = input.erase(0, input.find(" "));
@@ -73,13 +77,13 @@ int main()
         cout << "y = " << circ.y << endl;
         cout << "radius = " << circ.radius << endl;
         break;
-    case (2):
+    case TRIANGLE:
         cout << "it's triangle" << endl;
         break;
-    case (3):
+    case POLYGON:
         cout << "it's polygon" << endl;
         break;
-    case (4):
+    case ERROR:
         cout << "Error in name of figure!";
     }
 }

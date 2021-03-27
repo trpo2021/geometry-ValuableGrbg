@@ -1,15 +1,15 @@
 #include "geometry.h"
 #include "parse.h"
+#include <algorithm>
 #include <iostream>
 #include <string>
-#include <algorithm>
 using namespace std;
 
 int main()
 {
-    string input, figureName;  
+    string input, figureName;
     getline(cin, input);
-    
+
     figureName = parse_name(input);
 
     float perimeter, area;
@@ -18,12 +18,12 @@ int main()
         circle circ;
         parse_circle(input, &circ);
         print_circle(&circ, &perimeter, &area);
-    break;
+        break;
     case TRIANGLE:
         triangle triag;
         parse_triangle(input, &triag);
         print_triangle(&triag, &perimeter, &area);
-    break;
+        break;
     case ERROR:
         cout << input << endl;
         cout << '^' << endl;
@@ -31,4 +31,3 @@ int main()
     }
 }
 
-//должно быть два файла один для функций геометрии другой для функций парсинга 

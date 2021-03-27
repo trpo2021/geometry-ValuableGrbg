@@ -30,4 +30,3 @@ int main()
         cout << "Error in name of figure!";
     }
 }
-

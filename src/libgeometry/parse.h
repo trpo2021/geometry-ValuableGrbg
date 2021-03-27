@@ -1,6 +1,6 @@
 #pragma once
 
-#include"geometry.h"
+#include "geometry.h"
 #include <string>
 
 std::string word_tolower(std::string word);

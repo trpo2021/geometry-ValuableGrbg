@@ -1,24 +1,19 @@
 #pragma once
 
-
-struct circle
-{
+struct circle {
     float x;
     float y;
     float radius;
 };
 
-struct triangle
-{
+struct triangle {
     float point_1[2];
     float point_2[2];
     float point_3[2];
     float point_4[2];
 };
 
-enum Figures {
-    CIRCLE, TRIANGLE, ERROR
-};
+enum Figures { CIRCLE, TRIANGLE, ERROR };
 
 void find_circle_param(circle circ, float* perimeter, float* area);
 

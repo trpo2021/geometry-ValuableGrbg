@@ -1,5 +1,5 @@
-#include "geometry.h"
-#include "parse.h"
+#include <libgeometry/geometry.h>
+#include <libgeometry/parse.h>
 #include <algorithm>
 #include <iostream>
 #include <string>

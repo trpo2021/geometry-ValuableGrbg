@@ -1,6 +1,6 @@
-#include <libgeometry/parse.h>
 #include <algorithm>
 #include <iostream>
+#include <libgeometry/parse.h>
 #include <string>
 
 std::string word_tolower(std::string word)

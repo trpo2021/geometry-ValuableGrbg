@@ -1,7 +1,7 @@
-#include <libgeometry/geometry.h>
-#include <libgeometry/parse.h>
 #include <algorithm>
 #include <iostream>
+#include <libgeometry/geometry.h>
+#include <libgeometry/parse.h>
 #include <string>
 using namespace std;
 

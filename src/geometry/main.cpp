@@ -8,25 +8,41 @@ using namespace std;
 int main()
 {
     string input, figureName;
-    getline(cin, input);
 
-    figureName = parse_name(input);
+    int number_of_figures;
+    cout << "Input the number of figures" << endl;
+    cin >> number_of_figures;
+    cin.sync();
+    mas_figures figures[number_of_figures];
+
+    for (int i = 0; i < number_of_figures; i++) {
+        getline(cin, input);
+        figureName = parse_name(&input);
+
+        switch (identify(figureName)) {
+        case CIRCLE:
+            figures[i].tag = CIRCLE;
+            figures[i].order_number = i + 1;
+            parse_circle(input, &figures[i]);
+            break;
+        case TRIANGLE:
+            figures[i].tag = TRIANGLE;
+            figures[i].order_number = i + 1;
+            parse_triangle(input, &figures[i]);
+            break;
+        case ERROR:
+            cout << input << endl;
+            cout << '^' << endl;
+            cout << "Error in name of figure!";
+        }
+    }
 
     float perimeter, area;
-    switch (identify(figureName)) {
-    case CIRCLE:
-        circle circ;
-        parse_circle(input, &circ);
-        print_circle(&circ, &perimeter, &area);
-        break;
-    case TRIANGLE:
-        triangle triag;
-        parse_triangle(input, &triag);
-        print_triangle(&triag, &perimeter, &area);
-        break;
-    case ERROR:
-        cout << input << endl;
-        cout << '^' << endl;
-        cout << "Error in name of figure!";
+    cout << endl;
+    for (int i = 0; i < number_of_figures; i++) {
+        if (figures[i].tag == CIRCLE)
+            print_circle(&figures[i], &perimeter, &area);
+        if (figures[i].tag == TRIANGLE)
+            print_triangle(&figures[i], &perimeter, &area);
     }
 }

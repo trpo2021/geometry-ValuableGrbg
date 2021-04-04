@@ -68,15 +68,15 @@ void parse_triangle(std::string input, triangle* triag)
     }
 }
 
-std::string parse_name(std::string input)
+std::string parse_name(std::string* input)
 {
     std::string figureName;
-    if (input.substr(0, 1) == " ") {
-        input.erase(0, input.find_first_not_of(" "));
+    if (input->substr(0, 1) == " ") {
+        input->erase(0, input->find_first_not_of(" "));
     }
-    if (input.substr(input.find("(") - 1, 1) == " ") {
-        input = input.erase(input.find(" "), input.find("(") - input.find(" "));
+    if (input->substr(input->find("(") - 1, 1) == " ") {
+        input->erase(input->find(" "), input->find("(") - input->find(" "));
     }
-    figureName = input.substr(0, input.find("("));
+    figureName = input->substr(0, input->find("("));
     return figureName;
 }

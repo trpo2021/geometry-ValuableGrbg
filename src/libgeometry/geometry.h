@@ -1,5 +1,7 @@
 #pragma once
 
+enum Figures { CIRCLE, TRIANGLE, ERROR };
+
 struct circle {
     float x;
     float y;
@@ -13,14 +15,21 @@ struct triangle {
     float point_4[2];
 };
 
-enum Figures { CIRCLE, TRIANGLE, ERROR };
+struct mas_figures {
+    Figures tag;
+    int order_number;
+    union {
+        struct circle circ;
+        struct triangle triag;
+    };
+};
 
 double distance_between_points(double x1, double x2, double y1, double y2);
 
-void find_circle_param(circle circ, float* perimeter, float* area);
+void find_circle_param(mas_figures circl, float* perimeter, float* area);
 
-void find_triangle_param(triangle triag, float* perimeter, float* area);
+void find_triangle_param(mas_figures triang, float* perimeter, float* area);
 
-void print_circle(circle* circ, float* perimeter, float* area);
+void print_circle(mas_figures* circl, float* perimeter, float* area);
 
-void print_triangle(triangle* triag, float* perimeter, float* area);
+void print_triangle(mas_figures* triang, float* perimeter, float* area);

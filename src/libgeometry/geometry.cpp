@@ -4,10 +4,10 @@
 #include <string>
 using namespace std;
 
-void find_circle_param(circle circ, float* perimeter, float* area)
+void find_circle_param(mas_figures circl, float* perimeter, float* area)
 {
-    *perimeter = 2 * 3.14 * circ.radius;
-    *area = 3.14 * circ.radius * circ.radius;
+    *perimeter = 2 * 3.14 * circl.circ.radius;
+    *area = 3.14 * circl.circ.radius * circl.circ.radius;
 }
 
 double distance_between_points(double x1, double x2, double y1, double y2)
@@ -16,14 +16,14 @@ double distance_between_points(double x1, double x2, double y1, double y2)
     return rez;
 }
 
-void find_triangle_param(triangle triag, float* perimeter, float* area)
+void find_triangle_param(mas_figures triang, float* perimeter, float* area)
 {
-    double x1 = triag.point_1[0];
-    double x2 = triag.point_2[0];
-    double x3 = triag.point_3[0];
-    double y1 = triag.point_1[1];
-    double y2 = triag.point_2[1];
-    double y3 = triag.point_3[1];
+    double x1 = triang.triag.point_1[0];
+    double x2 = triang.triag.point_2[0];
+    double x3 = triang.triag.point_3[0];
+    double y1 = triang.triag.point_1[1];
+    double y2 = triang.triag.point_2[1];
+    double y3 = triang.triag.point_3[1];
 
     *perimeter = distance_between_points(x1, x2, y1, y2)
             + distance_between_points(x2, x3, y2, y3)
@@ -32,22 +32,25 @@ void find_triangle_param(triangle triag, float* perimeter, float* area)
     *area = abs(((x2 - x1) * (y3 - y1) - (x3 - x1) * (y2 - y1)) / 2);
 }
 
-void print_circle(circle* circ, float* perimeter, float* area)
+void print_circle(mas_figures* circl, float* perimeter, float* area)
 {
-    cout << "circle(" << circ->x << ' ' << circ->y << ", " << circ->radius
-         << ")" << endl;
-    find_circle_param(*circ, perimeter, area);
+    cout << circl->order_number << "."
+         << "circle(" << circl->circ.x << ' ' << circl->circ.y << ", "
+         << circl->circ.radius << ")" << endl;
+    find_circle_param(*circl, perimeter, area);
     cout << "Perimetr: " << *perimeter << endl;
     cout << "Area: " << *area << endl;
 }
 
-void print_triangle(triangle* triag, float* perimeter, float* area)
+void print_triangle(mas_figures* triang, float* perimeter, float* area)
 {
-    cout << "triangle((" << triag->point_1[0] << ' ' << triag->point_1[1] << ","
-         << triag->point_2[0] << ' ' << triag->point_2[1] << ","
-         << triag->point_3[0] << ' ' << triag->point_3[1] << ","
-         << triag->point_4[0] << ' ' << triag->point_4[1] << "))" << endl;
-    find_triangle_param(*triag, perimeter, area);
+    cout << triang->order_number << "."
+         << "triangle((" << triang->triag.point_1[0] << ' '
+         << triang->triag.point_1[1] << "," << triang->triag.point_2[0] << ' '
+         << triang->triag.point_2[1] << "," << triang->triag.point_3[0] << ' '
+         << triang->triag.point_3[1] << "," << triang->triag.point_4[0] << ' '
+         << triang->triag.point_4[1] << "))" << endl;
+    find_triangle_param(*triang, perimeter, area);
     cout << "Perimeter: " << *perimeter << endl;
     cout << "Area: " << *area << endl;
 }

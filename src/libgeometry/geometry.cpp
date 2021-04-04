@@ -12,7 +12,7 @@ void find_circle_param(circle circ, float* perimeter, float* area)
 
 double distance_between_points(double x1, double x2, double y1, double y2)
 {
-    double rez = sqrt(pow((x2 - x1), 2)+ pow((y2-y1), 2));
+    double rez = sqrt(pow((x2 - x1), 2) + pow((y2 - y1), 2));
     return rez;
 }
 
@@ -25,9 +25,11 @@ void find_triangle_param(triangle triag, float* perimeter, float* area)
     double y2 = triag.point_2[1];
     double y3 = triag.point_3[1];
 
-    *perimeter = distance_between_points(x1, x2, y1, y2) + distance_between_points(x2, x3, y2,y3)+ distance_between_points(x3, x1, y3, y1); 
+    *perimeter = distance_between_points(x1, x2, y1, y2)
+            + distance_between_points(x2, x3, y2, y3)
+            + distance_between_points(x3, x1, y3, y1);
 
-    *area = abs(((x2-x1)*(y3 - y1)-(x3-x1)*(y2-y1))/2);
+    *area = abs(((x2 - x1) * (y3 - y1) - (x3 - x1) * (y2 - y1)) / 2);
 }
 
 void print_circle(circle* circ, float* perimeter, float* area)

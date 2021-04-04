@@ -15,6 +15,8 @@ struct triangle {
 
 enum Figures { CIRCLE, TRIANGLE, ERROR };
 
+double distance_between_points(double x1, double x2, double y1, double y2);
+
 void find_circle_param(circle circ, float* perimeter, float* area);
 
 void find_triangle_param(triangle triag, float* perimeter, float* area);

@@ -37,7 +37,7 @@ int main()
         }
     }
 
-    float perimeter, area;
+    double perimeter, area;
     cout << endl;
     for (int i = 0; i < number_of_figures; i++) {
         if (figures[i].tag == CIRCLE)

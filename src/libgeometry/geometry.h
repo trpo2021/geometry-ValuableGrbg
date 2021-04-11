@@ -26,10 +26,10 @@ struct mas_figures {
 
 double distance_between_points(double x1, double x2, double y1, double y2);
 
-void find_circle_param(mas_figures circl, float* perimeter, float* area);
+void find_circle_param(mas_figures circl, double* perimeter, double* area);
 
-void find_triangle_param(mas_figures triang, float* perimeter, float* area);
+void find_triangle_param(mas_figures triang, double* perimeter, double* area);
 
-void print_circle(mas_figures* circl, float* perimeter, float* area);
+void print_circle(mas_figures* circl, double* perimeter, double* area);
 
-void print_triangle(mas_figures* triang, float* perimeter, float* area);
+void print_triangle(mas_figures* triang, double* perimeter, double* area);

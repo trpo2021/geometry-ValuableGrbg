@@ -4,10 +4,24 @@
 #include <string>
 using namespace std;
 
-void find_circle_param(mas_figures circl, float* perimeter, float* area)
+double circle_perimeter(double radius)
 {
-    *perimeter = 2 * 3.14 * circl.circ.radius;
-    *area = 3.14 * circl.circ.radius * circl.circ.radius;
+    double perimeter;
+    perimeter = 2 * 3.14 * radius;
+    return perimeter;   
+}
+
+double circle_area(double radius)
+{
+    double area;
+    area = 3.14 * radius * radius;
+    return area;   
+}
+
+void find_circle_param(mas_figures circl, double* perimeter, double* area)
+{
+    *perimeter = circle_perimeter(circl.circ.radius);
+    *area = circle_area(circl.circ.radius);
 }
 
 double distance_between_points(double x1, double x2, double y1, double y2)
@@ -16,7 +30,7 @@ double distance_between_points(double x1, double x2, double y1, double y2)
     return rez;
 }
 
-void find_triangle_param(mas_figures triang, float* perimeter, float* area)
+void find_triangle_param(mas_figures triang, double* perimeter, double* area)
 {
     double x1 = triang.triag.point_1[0];
     double x2 = triang.triag.point_2[0];
@@ -32,7 +46,7 @@ void find_triangle_param(mas_figures triang, float* perimeter, float* area)
     *area = abs(((x2 - x1) * (y3 - y1) - (x3 - x1) * (y2 - y1)) / 2);
 }
 
-void print_circle(mas_figures* circl, float* perimeter, float* area)
+void print_circle(mas_figures* circl, double* perimeter, double* area)
 {
     cout << circl->order_number << "."
          << "circle(" << circl->circ.x << ' ' << circl->circ.y << ", "
@@ -42,7 +56,7 @@ void print_circle(mas_figures* circl, float* perimeter, float* area)
     cout << "Area: " << *area << endl;
 }
 
-void print_triangle(mas_figures* triang, float* perimeter, float* area)
+void print_triangle(mas_figures* triang, double* perimeter, double* area)
 {
     cout << triang->order_number << "."
          << "triangle((" << triang->triag.point_1[0] << ' '

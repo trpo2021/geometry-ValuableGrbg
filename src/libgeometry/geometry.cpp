@@ -8,14 +8,14 @@ double circle_perimeter(double radius)
 {
     double perimeter;
     perimeter = 2 * 3.14 * radius;
-    return perimeter;   
+    return perimeter;
 }
 
 double circle_area(double radius)
 {
     double area;
     area = 3.14 * radius * radius;
-    return area;   
+    return area;
 }
 
 void find_circle_param(mas_figures circl, double* perimeter, double* area)

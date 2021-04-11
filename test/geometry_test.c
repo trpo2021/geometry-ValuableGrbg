@@ -2,14 +2,14 @@
 #include <libgeometry/geometry.h>
 #include <stdlib.h>
 
-CTEST(P_and_A_of_circles, Perimeter)
+CTEST(Perimeter_and_area_of_a_circle, Perimeter)
 {
-    Circle_S Circle;
+    circle Circle;
     Circle.radius = 2;
 
-    float real = PerimeterOfACircle(Circle);
+    double real = circle_perimeter(Circle.radius);
 
-    float expP = 12.56636;
+    double expP = 12.56636;
 
     ASSERT_DBL_NEAR(expP, real);
 }

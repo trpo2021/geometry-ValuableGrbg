@@ -33,3 +33,7 @@ void find_triangle_param(mas_figures triang, double* perimeter, double* area);
 void print_circle(mas_figures* circl, double* perimeter, double* area);
 
 void print_triangle(mas_figures* triang, double* perimeter, double* area);
+
+double circle_area(double radius);
+
+double circle_perimeter(double radius);

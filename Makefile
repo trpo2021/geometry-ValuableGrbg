@@ -56,7 +56,7 @@ test: $(APP_PATH_TEST)
 $(APP_PATH_TEST): $(APP_OBJECTS_TEST) $(LIB_PATH)
 	$(CC) $(CPPFLAGS_TEST) $^ -o $@ $(LDFLAGS) $(LDLIBS)
 	
-$(OBJ_DIR)/$(TEST_DIR)/%.o: $(TEST_DIR)/%.c
+$(OBJ_DIR)/$(TEST_DIR)/%.o: $(TEST_DIR)/%.$(SRC_EXT)
 	$(CC) -c $(CPPFLAGS_TEST) $< -o $@ $(LDLIBS)
 
 .PHONY: clean

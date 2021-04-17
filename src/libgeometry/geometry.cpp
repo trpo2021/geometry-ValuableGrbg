@@ -18,6 +18,34 @@ double circle_area(double radius)
     return area;
 }
 
+double triangle_area(
+        double x1,
+        double x2,
+        double x3,
+        double y1,
+        double y2,
+        double y3) 
+{
+    double area;
+    area = abs(((x2 - x1) * (y3 - y1) - (x3 - x1) * (y2 - y1)) / 2);
+    return area;
+}
+
+double triangle_perimeter(
+        double x1,
+        double x2,
+        double x3,
+        double y1,
+        double y2,
+        double y3)
+{
+    double perimeter;
+    perimeter = distance_between_points(x1, x2, y1, y2)
+            + distance_between_points(x2, x3, y2, y3)
+            + distance_between_points(x3, x1, y3, y1);
+    return perimeter;
+}
+
 void find_circle_param(mas_figures circl, double* perimeter, double* area)
 {
     *perimeter = circle_perimeter(circl.circ.radius);
@@ -39,11 +67,9 @@ void find_triangle_param(mas_figures triang, double* perimeter, double* area)
     double y2 = triang.triag.point_2[1];
     double y3 = triang.triag.point_3[1];
 
-    *perimeter = distance_between_points(x1, x2, y1, y2)
-            + distance_between_points(x2, x3, y2, y3)
-            + distance_between_points(x3, x1, y3, y1);
+    *perimeter = triangle_perimeter(x1, x2, x3, y1, y2, y3);
 
-    *area = abs(((x2 - x1) * (y3 - y1) - (x3 - x1) * (y2 - y1)) / 2);
+    *area = triangle_area(x1, x2, x3, y1, y2, y3);
 }
 
 void print_circle(mas_figures* circl, double* perimeter, double* area)

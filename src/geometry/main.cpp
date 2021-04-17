@@ -2,6 +2,7 @@
 #include <iostream>
 #include <libgeometry/geometry.h>
 #include <libgeometry/parse.h>
+#include <limits>
 #include <string>
 using namespace std;
 
@@ -12,7 +13,8 @@ int main()
     int number_of_figures;
     cout << "Input the number of figures" << endl;
     cin >> number_of_figures;
-    cin.sync();
+    cin.clear();
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
     mas_figures figures[number_of_figures];
 
     for (int i = 0; i < number_of_figures; i++) {

@@ -18,13 +18,8 @@ double circle_area(double radius)
     return area;
 }
 
-double triangle_area(
-        double x1,
-        double x2,
-        double x3,
-        double y1,
-        double y2,
-        double y3) 
+double
+triangle_area(double x1, double x2, double x3, double y1, double y2, double y3)
 {
     double area;
     area = abs(((x2 - x1) * (y3 - y1) - (x3 - x1) * (y2 - y1)) / 2);
@@ -32,12 +27,7 @@ double triangle_area(
 }
 
 double triangle_perimeter(
-        double x1,
-        double x2,
-        double x3,
-        double y1,
-        double y2,
-        double y3)
+        double x1, double x2, double x3, double y1, double y2, double y3)
 {
     double perimeter;
     perimeter = distance_between_points(x1, x2, y1, y2)

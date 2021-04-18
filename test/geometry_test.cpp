@@ -1,5 +1,6 @@
 #include <ctest.h>
 #include <libgeometry/geometry.h>
+#include <libgeometry/parse.h>
 
 #include <stdlib.h>
 

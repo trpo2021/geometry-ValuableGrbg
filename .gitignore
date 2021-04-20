@@ -1,0 +1,6 @@
+#Ignore executable and objective files
+*.exe
+*.o
+*.elf
+*.d
+*.a
